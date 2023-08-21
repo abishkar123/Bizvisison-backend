@@ -19,9 +19,13 @@ app.use(morgan("dev"));
 //API Router 
 import JoinRouter from './src/router/JoinRouter.js'
 import AdminRouter from './src/router/AdminRouter.js'
+import blogRouter from './src/router/blogRouter.js'
+
 
 app.use("/api/v1/join", JoinRouter)
 app.use("/api/v1/admin", AdminRouter)
+app.use("/api/v1/blog", blogRouter)
+
 
  
 
