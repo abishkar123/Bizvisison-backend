@@ -1,0 +1,14 @@
+//admin api 
+@url= http://localhost:8000/api/v1
+
+POST {{url}}/admin/register
+Content-type:application/json
+
+{  
+
+"email": "yh@gmail.com",
+"fname": "sdf",
+"lname": "sdf",
+"password":"1234",
+"phonenumber": "23443446",
+}
