@@ -3,13 +3,18 @@ dotenv.config();
 import express from "express";
 import morgan from "morgan"
 import cors from "cors"
+import path from 'path'
 const app = express();
+
 
 const PORT = process.env.PORT || 8000;
 
 //db Connect 
 import { dbConnect } from "./src/config/dbConfig.js";
 dbConnect()
+const __dirname = path.resolve();
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname)));
 
 //middlewares
 app.use(cors())
