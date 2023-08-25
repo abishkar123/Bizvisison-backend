@@ -7,24 +7,30 @@ import path from 'path'
 const app = express();
 
 
+
 const PORT = process.env.PORT || 8000;
 
 //db Connect 
 import { dbConnect } from "./src/config/dbConfig.js";
 dbConnect()
-const __dirname = path.resolve();
+
+const __dirname = path.resolve()
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, "/client/build")))
 
 //middlewares
 app.use(cors())
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(express.static(path.join(__dirname, "/public")));
+
 
 //API Router 
 import JoinRouter from './src/router/JoinRouter.js'
 import AdminRouter from './src/router/AdminRouter.js'
 import blogRouter from './src/router/blogRouter.js'
+import { isAuth } from "./src/middleware/authMiddleware.js";
 
 
 app.use("/api/v1/join", JoinRouter)
@@ -33,7 +39,6 @@ app.use("/api/v1/blog", blogRouter)
 
 
  
-
 
 
 //root url request
