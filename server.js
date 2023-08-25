@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 import JoinRouter from './src/router/JoinRouter.js'
 import AdminRouter from './src/router/AdminRouter.js'
 import blogRouter from './src/router/blogRouter.js'
-import { isAuth } from "./src/middleware/authMiddleware.js";
+
 
 
 app.use("/api/v1/join", JoinRouter)
